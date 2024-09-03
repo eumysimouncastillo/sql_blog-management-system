@@ -1,0 +1,48 @@
+1. 
+SELECT * FROM Users
+
+WHERE DateOfBirth BETWEEN '2000-01-01' AND '2004-12-31';
+
+
+2.  
+SELECT * FROM Posts
+
+WHERE PostedBy = '4';
+
+
+3.
+SELECT GroupName FROM Groups;
+
+
+4.
+SELECT * FROM GroupMembershipRequests
+
+WHERE GroupMemberUserID = '2';
+
+
+5.
+SELECT UserID, Username
+FROM Users 
+JOIN Friends 
+ON (UserID = FriendWhoAdded AND FriendBeingAdded = '2' AND IsAccepted = true)
+OR (UserID = FriendBeingAdded AND FriendWhoAdded = '2' AND IsAccepted = true);
+
+
+6.
+SELECT UserID, FriendWhoAdded, FriendBeingAdded, IsAccepted
+FROM Friends
+JOIN Users 
+ON FriendWhoAdded = UserID
+WHERE FriendWhoAdded = '1';
+
+
+7.
+SELECT * FROM Posts
+
+WHERE GroupID = '2' AND IsPublic = false;
+
+
+8.
+SELECT * FROM GroupMembershipRequests
+
+WHERE GroupID = '2' AND IsGroupMemberShipAccepted = false;
